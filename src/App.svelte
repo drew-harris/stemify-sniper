@@ -35,10 +35,14 @@
     }
   }
   onMount(setData);
+
+  const onKeyPress = (e) => {
+    if (e.charCode === 13) setData();
+  };
 </script>
 
 <h1>Stemify Sniper Tool</h1>
-<input bind:value={searchQuery} />
+<input bind:value={searchQuery} on:keypress={onKeyPress} />
 <button on:click={setData}>Search</button>
 
 {#if songs.length == 0}
