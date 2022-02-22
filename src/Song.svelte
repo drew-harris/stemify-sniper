@@ -61,23 +61,23 @@
     }
   }
 
-  function getClassOfSong() {
+  function getClassOfSong(song) {
     let myClass = "song ";
-    if (data.adminHidden) {
+    if (song.adminHidden) {
       myClass += "rejected ";
     }
     if (deleted) {
       myClass += "deleted ";
-    } else if (data.approved && !data.complete) {
+    } else if (song.approved && !song.complete) {
       myClass += "early-approved ";
-    } else if (data.approved && data.complete) {
+    } else if (song.approved && song.complete) {
       myClass += "complete-approved  ";
     }
     return myClass;
   }
 </script>
 
-<div class={getClassOfSong()}>
+<div class={getClassOfSong(data)}>
   <div class="left">
     <div class="info">ID: {data._id}</div>
     <div class={data.complete ? "info green" : "info red"}>
@@ -106,7 +106,7 @@
       <button class="green" on:click={approveSong}>Approve</button>
     {/if}
     {#if !data.adminHidden && !deleted && !data.approved}
-      <button on:click={rejectSong}>Rejectt </button>
+      <button on:click={rejectSong}>Reject </button>
     {/if}
   </div>
 </div>
