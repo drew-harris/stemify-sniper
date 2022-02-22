@@ -49,6 +49,19 @@
   <div class="loading">Loading...</div>
 {/if}
 
-{#each songs as song}
-  <Song data={song} />
-{/each}
+<div class="songs">
+  {#each songs as song}
+    <Song data={song} />
+  {/each}
+</div>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  .songs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+</style>

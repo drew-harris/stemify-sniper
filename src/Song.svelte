@@ -125,10 +125,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 8px;
-    margin-top: 5px;
+    padding: 20px;
+    border: 1px solid #ccc;
   }
 
   .rejected {
