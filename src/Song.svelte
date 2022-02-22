@@ -141,7 +141,7 @@
   }
 
   .early-approved {
-    background-color: rgb(255, 249, 230) !important;
+    background-color: rgb(230, 234, 255) !important;
   }
 
   .deleted {
