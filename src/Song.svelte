@@ -61,7 +61,7 @@
     }
   }
 
-  function getClassOfSong(song) {
+  function getClassOfSong(song, deleted) {
     let myClass = "song ";
     if (song.adminHidden) {
       myClass += "rejected ";
@@ -75,9 +75,16 @@
     }
     return myClass;
   }
+
+  function isYoutubeMusic() {
+    if (!data.youtubeUrl) {
+      return false;
+    }
+    return data.youtubeUrl.includes("music");
+  }
 </script>
 
-<div class={getClassOfSong(data)}>
+<div class={getClassOfSong(data, deleted)}>
   <div class="left">
     <div class="info">ID: {data._id}</div>
     <div class={data.complete ? "info green" : "info red"}>
@@ -94,7 +101,9 @@
       {data.metadata.trackId ? "SPOTIFY DATA" : "MANUAL DATA"}
     </div>
     {#if data.youtubeUrl}
-      <a href={data.youtubeUrl} target="_blank">Youtube Link</a>
+      <a href={data.youtubeUrl} target="_blank"
+        >{isYoutubeMusic() ? "Youtube MUSIC Link" : "Youtube Link"}</a
+      >
     {/if}
     <div class="info">Time Submitted: {getTimeString(data.timeSubmitted)}</div>
   </div>
@@ -133,6 +142,10 @@
 
   .early-approved {
     background-color: rgb(255, 249, 230) !important;
+  }
+
+  .deleted {
+    background-color: rgb(253, 186, 186) !important;
   }
 
   .right {
