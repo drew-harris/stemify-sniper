@@ -41,6 +41,10 @@
 <input bind:value={searchQuery} />
 <button on:click={setData}>Search</button>
 
+{#if songs.length == 0}
+  <div class="loading">Loading...</div>
+{/if}
+
 {#each songs as song}
   <Song data={song} />
 {/each}

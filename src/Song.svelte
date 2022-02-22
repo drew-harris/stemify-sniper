@@ -106,7 +106,7 @@
       <button class="green" on:click={approveSong}>Approve</button>
     {/if}
     {#if !data.adminHidden && !deleted && !data.approved}
-      <button on:click={rejectSong}>Reject</button>
+      <button on:click={rejectSong}>Rejectt </button>
     {/if}
   </div>
 </div>
